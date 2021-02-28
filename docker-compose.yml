@@ -1,0 +1,37 @@
+version: "3.8"
+services:
+  db:
+    image: influxdb:2.0-alpine
+    ports:
+      - "8086:8086"
+    restart: "always"
+    volumes:
+      - /opt/influx/data:/var/lib/influxdb2
+      - /opt/influx/config:/etc/influxdb2
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "1m"
+        max-file: "10"
+    environment:
+      - DOCKER_INFLUXDB_INIT_MODE=setup
+      - DOCKER_INFLUXDB_INIT_BUCKET=${INFLUX_BUCKET}
+      - DOCKER_INFLUXDB_INIT_USERNAME=${INFLUX_ADMIN_NAME}
+      - DOCKER_INFLUXDB_INIT_PASSWORD=${INFLUX_ADMIN_PASSWORD}
+      - DOCKER_INFLUXDB_INIT_ORG=${INFLUX_ORG}
+      - DOCKER_INFLUXDB_INIT_RETENTION=${INFLUX_RETENTION}
+      - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=${INFLUX_TOKEN}
+    container_name: db
+
+  collector:
+    build: .
+    depends_on:
+      - db
+    environment:
+      - INFLUX_URL=http://influxdb:8086
+      - INFLUX_TOKEN=${INFLUX_TOKEN}
+      - INFLUX_BUCKET=${INFLUX_BUCKET}
+      - INFLUX_ORG=${INFLUX_ORG}
+    volumes:
+      - /opt/collector/config:/opt/cti-stats-collector/config
+    container_name: collector

@@ -1,0 +1,680 @@
+COMMUNITY_FEEDS:
+  # BOTVRIJ.EU feed
+  # Feed can be with context as: http://www.botvrij.eu/data/ioclist.ip-dst
+  # or without (with `raw` postfix): http://www.botvrij.eu/data/ioclist.ip-dst.raw
+  botvrijIpDst:
+    - url: http://www.botvrij.eu/data/ioclist.ip-dst.raw
+    - type: txt
+  botvrijDomain:
+    - url: http://www.botvrij.eu/data/ioclist.domain.raw
+    - type: txt
+  botvrijUrl:
+    - url: http://www.botvrij.eu/data/ioclist.url.raw
+    - type: txt
+  botvrijFilename:
+    - url: http://www.botvrij.eu/data/ioclist.filename.raw
+    - type: txt
+  botvrijMD5:
+    - url: http://www.botvrij.eu/data/ioclist.md5.raw
+    - type: txt
+  botvrijSHA1:
+    - url: http://www.botvrij.eu/data/ioclist.sha1.raw
+    - type: txt
+  botvrijSHA256:
+    - url: http://www.botvrij.eu/data/ioclist.sha256.raw
+    - type: txt
+  botvrijEmailSrc:
+    - url: http://www.botvrij.eu/data/ioclist.email-src.raw
+    - type: txt
+  botvrijRegkey:
+    - url: http://www.botvrij.eu/data/ioclist.regkey.raw
+    - type: txt
+
+  # SANS feeds
+  SANSHighSuspiciousDomains:
+    - url: https://isc.sans.edu/feeds/suspiciousdomains_High.txt
+    - type: txt
+  SANSMedSuspiciousDomains:
+    - url: https://isc.sans.edu/feeds/suspiciousdomains_Medium.txt
+    - type: txt
+  SANSLowSuspiciousDomains:
+    - url: https://isc.sans.edu/feeds/suspiciousdomains_Low.txt
+    - type: txt
+  SANSTorExitNodes:
+    - url: https://isc.sans.edu/feeds/topips.txt
+    - type: txt
+  AbuseBazzar:
+    - url: https://bazaar.abuse.ch/export/csv/recent/
+    - type: csv
+  FutexRe:
+    - url: https://futex.re/tracker/TinyTracker.csv
+    - type: csv
+
+  # # Ramsomware tracker (Abuse Ch), confidence 50 — DISCONTINUED
+  # ransomwaretrackerAbuseChFeed:
+  #   - url: https://ransomwaretracker.abuse.ch/feeds/csv/
+  #   - type: txt
+  # ransomwaretrackerAbuseChUrlBL:
+  #   - url: https://ransomwaretracker.abuse.ch/downloads/RW_URLBL.txt
+  #   - type: txt
+  # ransomwaretrackerAbuseChIpBL:
+  #   - url: https://ransomwaretracker.abuse.ch/downloads/RW_IPBL.txt
+  #   - type: txt
+  # ransomwaretrackerAbuseChDomainsBL:
+  #   - url: https://ransomwaretracker.abuse.ch/downloads/RW_DOMBL.txt
+  #   - type: txt
+  # ransomwaretrackerAbuseChUrlLockyBL:
+  #   - url: https://ransomwaretracker.abuse.ch/downloads/LY_DS_URLBL.txt
+  #   - type: txt
+  # ransomwaretrackerAbuseChUrlTeslaCryptBL:
+  #   - url: https://ransomwaretracker.abuse.ch/downloads/TC_C2_URLBL.txt
+  #   - type: txt
+  # ransomwaretrackerAbuseChUrlTeslaCryptDistributionList:
+  #   - url: https://ransomwaretracker.abuse.ch/downloads/TC_DS_URLBL.txt
+  #   - type: txt
+  # ransomwaretrackerAbuseChUrlPaymentSitesBL:
+  #   - url: https://ransomwaretracker.abuse.ch/downloads/LY_PS_IPBL.txt
+  #   - type: txt
+  # ransomwaretrackerAbuseChTorrentLockerPaymentSites:
+  #   - url: https://ransomwaretracker.abuse.ch/downloads/TL_PS_DOMBL.txt
+  #   - type: txt
+  # ransomwaretrackerAbuseChTorrentLockerRansomware:
+  #   - url: https://ransomwaretracker.abuse.ch/downloads/TL_C2_DOMBL.txt
+  #   - type: txt
+  # ransomwaretrackerAbuseChTeslaCrypsPaymentSitesDOMBL:
+  #   - url: https://ransomwaretracker.abuse.ch/downloads/TC_PS_DOMBL.txt
+  #   - type: txt
+  # ransomwaretrackerAbuseChCryptoWallURLBL:
+  #   - url: https://ransomwaretracker.abuse.ch/downloads/CW_C2_URLBL.txt
+  #   - type: txt
+  # ransomwaretrackerAbuseChCryptoWallPaymentSites:
+  #   - url: https://ransomwaretracker.abuse.ch/downloads/CW_PS_DOMBL.txt
+  #   - type: txt
+  # ransomwaretrackerAbuseChLockyRansomwarePaymentSitesDOMBL:
+  #   - url: https://ransomwaretracker.abuse.ch/downloads/LY_PS_DOMBL.txt
+  #   - type: txt
+  # ransomwaretrackerAbuseChLockyRansomwareDOMBL:
+  #   - url: https://ransomwaretracker.abuse.ch/downloads/LY_C2_DOMBL.txt
+  #   - type: txt
+
+  # # Zeus tracker - DISCONTINUED
+  # zeustrackerAbuseChDomainsBL:
+  #   - url: https://zeustracker.abuse.ch/blocklist.php?download=domainblocklist
+  #   - type: txt
+  # zeustrackerAbuseChIpBL:
+  #   - url: https://zeustracker.abuse.ch/blocklist.php?download=ipblocklist
+  #   - type: txt
+  # zeustrackerAbuseCompromisedURLs:
+  #   - url: https://zeustracker.abuse.ch/blocklist.php?download=compromised
+  #   - type: txt
+
+  # Emerging threats
+  emergingThreatsBL:
+    - url: https://rules.emergingthreats.net/fwrules/emerging-Block-IPs.txt
+    - type: txt
+  emergingThreatsCompromisedIPs:
+    - url: https://rules.emergingthreats.net/blockrules/compromised-ips.txt
+    - type: txt
+
+  # Feodo tracker
+  feodotrackerIpBL:
+    - url: https://feodotracker.abuse.ch/downloads/ipblocklist.txt
+    - type: txt
+  feodotrackerMalwareHashes:
+    - url: https://feodotracker.abuse.ch/downloads/malware_hashes.txt
+    - type: txt
+
+  # Anomali Labs
+  AnomaliDynDNS:
+    - url: https://s3.amazonaws.com/ts-labs-public-data/dyndns.txt
+    - type: txt
+
+  # Bambenek feeds
+  bambenekIpFeed:
+    - url: https://osint.bambenekconsulting.com/feeds/c2-ipmasterlist.txt
+    - type: txt
+  bambenekDomainFeed:
+    - url: http://osint.bambenekconsulting.com/feeds/c2-dommasterlist.txt
+    - type: txt
+  bambenekCnC:
+    - url: http://osint.bambenekconsulting.com/feeds/c2-masterlist.txt
+    - type: txt
+
+  # Italy CERT
+  italyCERTDomains:
+    - url: https://infosec.cert-pa.it/analyze/listdomains.txt
+    - type: txt
+  italyCERTURLs:
+    - url: https://infosec.cert-pa.it/analyze/listurls.txt
+    - type: txt
+  italyCERTIPs:
+    - url: https://infosec.cert-pa.it/analyze/listip.txt
+    - type: txt
+
+  # Austrian CERT
+  austrianCERT:
+    - url: https://www.cert.at/static/downloads/data/conficker/all_domains.txt
+    - type: txt
+
+  # Threat Crowd feed
+  threatCrowdDomains:
+    - url: https://www.threatcrowd.org/feeds/domains.txt
+    - type: txt
+  threatCrowdIPs:
+    - url: https://www.threatcrowd.org/feeds/ips.txt
+    - type: txt
+  threatCrowdHashes:
+    - url: https://www.threatcrowd.org/feeds/hashes.txt
+    - type: txt
+
+  # Dataplane feeds
+  datapladataplaneVncRFB:
+    - url: https://dataplane.org/vncrfb.txt
+    - type: txt
+  dataplaneSSHClientConnections:
+    - url: https://dataplane.org/sshclient.txt
+    - type: txt
+  dataplaneSshpWAUTH:
+    - url: https://dataplane.org/sshpwauth.txt
+    - type: txt
+  dataplaneSipInvitations:
+    - url: https://dataplane.org/sipinvitation.txt
+    - type: txt
+  dataplaneSipQuery:
+    - url: https://dataplane.org/sipquery.txt
+    - type: txt
+  dataplaneSipRegistration:
+    - url: https://dataplane.org/sipregistration.txt
+    - type: txt
+  dataplaneDnsRecursionDesired:
+    - url: https://dataplane.org/dnsrd.txt
+    - type: txt
+  dataplaneDnsRecursionDesiredInAny:
+    - url: https://dataplane.org/dnsrdany.txt
+    - type: txt
+  dataplaneDnsCHTXT:
+    - url: https://dataplane.org/dnsversion.txt
+    - type: txt
+
+  # Blocklist DE feeds — confidence 60
+  blocklistDeBots:
+    - url: http://www.blocklist.de/lists/bots.txt
+    - type: txt
+  blocklistDeEmails:
+    - url: http://www.blocklist.de/lists/email.txt
+    - type: txt
+  blocklistDeFTPs:
+    - url: http://www.blocklist.de/lists/ftp.txt
+    - type: txt
+  blocklistDeIMAPs:
+    - url: http://www.blocklist.de/lists/imap.txt
+    - type: txt
+  blocklistDeIRCBots:
+    - url: http://www.blocklist.de/lists/ircbot.txt
+    - type: txt
+  blocklistDePOP3:
+    - url: http://www.blocklist.de/lists/pop3.txt
+    - type: txt
+  blocklistDePostfix:
+    - url: http://www.blocklist.de/lists/postfix.txt
+    - type: txt
+  blocklistDeProFTPd:
+    - url: http://www.blocklist.de/lists/proftpd.txt
+    - type: txt
+  blocklistDeSIP:
+    - url: http://www.blocklist.de/lists/sip.txt
+    - type: txt
+  blocklistDeSSH:
+    - url: http://www.blocklist.de/lists/ssh.txt
+    - type: txt
+  blocklistDeCourierPOP3:
+    - url: http://www.blocklist.de/lists/courierpop3.txt
+    - type: txt
+  blocklistDeCourierIMAP:
+    - url: http://www.blocklist.de/lists/courierimap.txt
+    - type: txt
+  blocklistDeAsterisk:
+    - url: http://www.blocklist.de/lists/asterisk.txt
+    - type: txt
+  blocklistDeApache:
+    - url: http://www.blocklist.de/lists/apache.txt
+    - type: txt
+
+  # Firehol feeds
+  fireholBitcoinNodes:
+    - url: https://raw.githubusercontent.com/firehol/blocklist-ipsets/master/bitcoin_nodes_1d.ipset
+    - type: txt
+  fireholBotScout:
+    - url: https://raw.githubusercontent.com/firehol/blocklist-ipsets/master/botscout_1d.ipset
+    - type: txt
+  fireholCruzitWebAttacks:
+    - url: https://raw.githubusercontent.com/firehol/blocklist-ipsets/master/cruzit_web_attacks.ipset
+    - type: txt
+  fireholMalwareDomainList:
+    - url: https://raw.githubusercontent.com/firehol/blocklist-ipsets/master/malwaredomainlist.ipset
+    - type: txt
+  fireholBL:
+    - url: https://raw.githubusercontent.com/ktsaou/blocklist-ipsets/master/firehol_level1.netset
+    - type: txt
+  fireholProxyBL:
+    - url: https://raw.githubusercontent.com/firehol/blocklist-ipsets/master/proxylists_1d.ipset
+    - type: txt
+  fireholProxyRSS:
+    - url: https://raw.githubusercontent.com/firehol/blocklist-ipsets/master/proxyrss_1d.ipset
+    - type: txt
+  fireholProxySpy:
+    - url: https://raw.githubusercontent.com/firehol/blocklist-ipsets/master/proxyspy_1d.ipset
+    - type: txt
+  fireholWebProxy:
+    - url: https://raw.githubusercontent.com/firehol/blocklist-ipsets/master/ri_web_proxies_30d.ipset
+    - type: txt
+  fireholSocksProxy:
+    - url: https://raw.githubusercontent.com/firehol/blocklist-ipsets/master/socks_proxy_7d.ipset
+    - type: txt
+  fireholSSLProxy:
+    - url: https://raw.githubusercontent.com/firehol/blocklist-ipsets/master/sslproxies_1d.ipset
+    - type: txt
+
+  # Nothink feeds
+  nothinkSshBL:
+    - url: http://www.nothink.org/blacklist/blacklist_ssh_day.txt
+    - type: txt
+  nothinkDnsMalwareBL:
+    - url: http://www.nothink.org/blacklist/blacklist_malware_dns.txt
+    - type: txt
+  nothinkHttpMalwareBL:
+    - url: http://www.nothink.org/blacklist/blacklist_malware_http.txt
+    - type: txt
+  nothinkIrcMalwareBL:
+    - url: http://www.nothink.org/blacklist/blacklist_malware_irc.txt
+    - type: txt
+
+  # Checkpoint OSINT feeds
+  checkpointIP:
+    - url: https://secureupdates.checkpoint.com/IP-list/IP-blacklist.txt
+    - type: txt
+  checkpointTOR:
+    - url: https://secureupdates.checkpoint.com/IP-list/TOR.txt
+    - type: txt
+
+  # Cisco Talos feed
+  talosintelFeed:
+    - url: http://www.talosintelligence.com/feeds/ip-filter.blf
+    - type: txt
+  talosIpBlacklist:
+    - url: http://www.talosintelligence.com/documents/ip-blacklist
+    - type: txt
+
+  # Rescure feeds
+  REScureCtiMaliciousIpFeed:
+    - url: https://rescure.fruxlabs.com/rescure_blacklist.txt
+    - type: txt
+  REScureCtiMaliciousDomainFeed:
+    - url: https://rescure.fruxlabs.com/rescure_domain_blacklist.txt
+    - type: txt
+
+  # Binary defence feeds
+  binaryDefenceIpBanlist:
+    - url: https://www.binarydefense.com/banlist.txt
+    - type: txt
+
+  # Netlab feed, confidence 100
+
+  netlabMagnitude:
+    - url: http://data.netlab.360.com/feeds/ek/magnitude.txt
+    - type: txt
+  netlabNeutrino:
+    - url: http://data.netlab.360.com/feeds/ek/neutrino.txt
+    - type: txt
+  netlabHajimeScanner:
+    - url: http://data.netlab.360.com/feeds/hajime-scanner/bot.list
+    - type: txt
+
+  # Other feeds
+  someoneOnPastebin:
+    - url: http://pastebin.com/raw/yKSQd5Z5
+    - type: txt
+  malc0deFeed:
+    - url: http://malc0de.com/bl/IP_Blacklist.txt
+    - type: txt
+  # threatlistFeed:
+  #   - url: https://threatlists.intercept.sh/threatlist_7d_weekly_sample.csv
+  #   - type: csv
+  mdlIpFeed:
+    - url: http://www.malwaredomainlist.com/hostslist/ip.txt
+    - type: txt
+  mdlDomainFeed:
+    - url: http://www.malwaredomainlist.com/hostslist/hosts.txt
+    - type: txt
+  tornodesFeed:
+    - url: https://check.torproject.org/exit-addresses
+    - type: txt
+  phishingReplyTo: # confidence 80
+    - url: http://svn.code.sf.net/p/aper/code/phishing_reply_addresses
+    - type: txt
+  coinBlockerList:
+    - url: https://gitlab.com/ZeroDot1/CoinBlockerLists/raw/master/list.txt?inline=false
+    - type: txt
+  coinBlockerBrowserList: # confidence 50
+    - url: https://gitlab.com/ZeroDot1/CoinBlockerLists/raw/master/list_browser.txt?inline=false
+    - type: txt
+  coinBlockerMiningServers:
+    - url: https://gitlab.com/ZeroDot1/CoinBlockerLists/raw/master/MiningServerIPList.txt?inline=false
+    - type: txt
+  diamondFoxPanels:
+    - url: https://raw.githubusercontent.com/pan-unit42/iocs/master/diamondfox/diamondfox_panels.txt
+    - type: txt
+  # booterblacklistOSINT: # confidence 50
+  #   - url: https://raw.githubusercontent.com/jjsantanna/booters_ecosystem_analysis/master/booterblacklist.csv
+  #   - type: csv
+  # Benkow.cc:
+  #   - url: https://benkow.cc/export.php
+  #   - type: csv
+  charleysTheHayles: # confidence 0
+    - url: http://charles.the-haleys.org/ssh_dico_attack_hdeny_format.php/hostsdeny.txt
+    - type: txt
+  panwdblAppspot:
+    - url: https://panwdbl.appspot.com/lists/mdl.txt
+    - type: txt
+  DdnsDomains:
+    - url: http://mirror1.malwaredomains.com/files/dynamic_dns.txt
+    - type: txt
+  marcoramilIPs:
+    - url: https://malware.army/api/honey_iplist
+    - type: txt
+  greensnow: # confidence 60
+    - url: https://blocklist.greensnow.co/greensnow.txt
+    - type: txt
+  vmxBadHosts:
+    - url: http://vmx.yourcmc.ru/BAD_HOSTS.IP4
+    - type: txt
+  ransomwarePaymentSites:
+    - url: https://files.deependresearch.org/feeds/ransomware/ransomware-payment-sites.txt
+    - type: txt
+  malwareDomainsDotCom:
+    - url: http://mirror1.malwaredomains.com/files/justdomains
+    - type: txt
+  malwareDomainsDotComImmortalDomains: # confidence 75
+    - url: http://mirror1.malwaredomains.com/files/immortal_domains.txt
+    - type: txt
+  openPhish: # confidence 60
+    - url: https://openphish.com/feed.txt
+    - type: txt
+  # phishTank:
+  #   - url: http://data.phishtank.com/data/online-valid.csv
+  #   - type: csv
+  sblamDotCom:
+    - url: https://sblam.com/blacklist.txt
+    - type: txt
+  danUkAllTorNodes:
+    - url: https://www.dan.me.uk/torlist/
+    - type: txt
+  danUkExitTorNodes:
+    - url: https://www.dan.me.uk/torlist/?exit
+    - type: txt
+  vxVaultURLs:
+    - url: http://vxvault.net/URL_List.php
+    - type: txt
+  ddnsProvidersList:
+    - url: http://dns-bh.sagadc.org/dynamic_dns.txt
+    - type: txt
+  cinscoreFeed: # confidence 70
+    - url: http://cinsscore.com/list/ci-badguys.txt
+    - type: txt
+  POP3GropersFeed:
+    - url: https://home.nuug.no/~peter/pop3gropers.txt
+    - type: txt
+  dshield:
+    - url: https://www.dshield.org/ipsascii.html
+    - type: txt
+  dangerRulezSk:
+    - url: http://danger.rulez.sk/projects/bruteforceblocker/blist.php
+    - type: txt
+  dnsShDDNS:
+    - url: http://dns-bh.sagadc.org/dynamic_dns.txt
+    - type: txt
+  sblam:
+    - url: https://sblam.com/blacklist.txt
+    - type: txt
+  joeWeinDomainBL:
+    - url: http://www.joewein.net/dl/bl/dom-bl-base.txt
+    - type: txt
+  disconnectMeMalvertising:
+    - url: https://disconnect.me/lists/malvertising
+    - type: txt
+  disconnectMeMalwareFilter:
+    - url: https://disconnect.me/lists/malwarefilter
+    - type: txt
+  myIpMsBL:
+    - url: https://myip.ms/files/blacklist/htaccess/latest_blacklist.txt
+    - type: txt
+  CryptocurrencyPools:
+    - url: https://raw.githubusercontent.com/Hestat/minerchk/master/hostslist.txt
+    - type: txt
+  # targetedThreatsBotherder:
+  #   - url: https://raw.githubusercontent.com/botherder/targetedthreats/master/targetedthreats.csv
+  #   - type: csv
+  # targetedThreatOSINT:
+  #   - url: https://raw.githubusercontent.com/botherder/targetedthreats/master/samples.csv
+  #   - type: csv
+  futpibGithubBL:
+    - url: https://raw.githubusercontent.com/futpib/policeman-rulesets/master/examples/simple_domains_blacklist.txt
+    - type: txt
+  malwareEmailsGithub:
+    - url: https://raw.githubusercontent.com/WSTNPHX/scripts-n-tools/master/malware-email-addresses.txt
+    - type: txt
+  magnetoMalwareScanner: # confidence 50
+    - url: https://raw.githubusercontent.com/gwillem/magento-malware-scanner/master/rules/burner-domains.txt
+    - type: txt
+  # blutmagieTOR:
+  #   - url: https://torstatus.blutmagie.de/ip_list_all.php/Tor_ip_list_ALL.csv
+  #   - type: csv
+  techhelplist:
+    - url: https://techhelplist.com/maltlqr/reports/dyreza.txt
+    - type: txt
+  # Digitalside TI
+  digitalSide - domains:
+    - url: https://osint.digitalside.it/Threat-Intel/lists/latestdomains.txt
+    - type: txt
+  digitalSide — hashes:
+    - url: https://osint.digitalside.it/Threat-Intel/lists/latesthashes.txt
+    - type: txt
+  digitalSide - IP:
+    - url: https://osint.digitalside.it/Threat-Intel/lists/latestips.txt
+    - type: txt
+  digitalSide - URL:
+    - url: https://osint.digitalside.it/Threat-Intel/lists/latesturls.txt
+    - type: txt
+  # AbuseChSSLBL:
+  #   - url: https://sslbl.abuse.ch/blacklist/sslipblacklist.csv
+  #   - type: csv
+  BBScanDNS:
+    - url: https://gist.githubusercontent.com/BBcan177/4a8bf37c131be4803cb2/raw
+    - type: txt
+  BBScanIP:
+    - url: https://gist.githubusercontent.com/BBcan177/bf29d47ea04391cb3eb0/raw/
+    - type: txt
+  darklistDe:
+    - url: http://www.darklist.de/raw.php
+    - type: txt
+  stDominicDropIpv4: # confidence 60
+    - url: https://threatintel.stdominics.sa.edu.au/droplist_high_confidence.txt
+    - type: txt
+  urlVirMalwareIP:
+    - url: http://www.urlvir.com/export-ip-addresses/
+    - type: txt
+  urlVirMalwareDomains:
+    - url: http://www.urlvir.com/export-hosts/
+    - type: txt
+  disconnectMesimpleMalwareList:
+    - url: https://s3.amazonaws.com/lists.disconnect.me/simple_malware.txt
+    - type: txt
+  dnsNotrackingDomains:
+    - url: https://raw.githubusercontent.com/notracking/hosts-blocklists/master/domains.txt
+    - type: txt
+  dnsNotrackingHostnames:
+    - url: https://raw.githubusercontent.com/notracking/hosts-blocklists/master/hostnames.txt
+    - type: txt
+  ApacheNoScript: # confidence 75
+    - url: https://www.badips.com/get/list/apache-noscript/3
+    - type: txt
+  AntiSpamProxy: # confidence 50
+    - url: https://www.badips.com/get/list/assp/3
+    - type: txt
+  badIpProxies: # confidence 75
+    - url: https://www.badips.com/get/list/proxy/3
+    - type: txt
+  ApacheW00otW00t: # confidence 50
+    - url: https://www.badips.com/get/list/apache-w00tw00t/3
+    - type: txt
+  ApachePhpMyAdmin: # confidence 50
+    - url: https://www.badips.com/get/list/apache-phpmyadmin/3
+    - type: txt
+  # ipSpamList:
+  #   - url: http://www.ipspamlist.com/public_feeds.csv
+  #   - type: csv
+  malSiloUrlFeed:
+    - url: https://malsilo.gitlab.io/feeds/dumps/url_list.txt
+    - type: txt
+  malSiloIpFeed:
+    - url: https://malsilo.gitlab.io/feeds/dumps/ip_list.txt
+    - type: txt
+  miraiSecurity:
+    - url: https://mirai.security.gives/data/ip_list.txt
+    - type: txt
+  dnsBhDDNS:
+    - url: http://dns-bh.sagadc.org/dynamic_dns.txt
+    - type: txt
+  # IP Sum aggregator:
+  IP Sum High FP:
+    - url: https://raw.githubusercontent.com/stamparm/ipsum/master/levels/1.txt
+    - type: txt
+  IP Sum Med FP:
+    - url: https://raw.githubusercontent.com/stamparm/ipsum/master/levels/2.txt
+    - type: txt
+  IP Sum Low FP:
+    - url: https://raw.githubusercontent.com/stamparm/ipsum/master/levels/3.txt
+    - type: txt
+  IP Sum Very Low FP:
+    - url: https://raw.githubusercontent.com/stamparm/ipsum/master/levels/4.txt
+    - type: txt
+  IP Sum Ultra Low FP:
+    - url: https://raw.githubusercontent.com/stamparm/ipsum/master/levels/5.txt
+    - type: txt
+  IP Sum No FP 01:
+    - url: https://raw.githubusercontent.com/stamparm/ipsum/master/levels/6.txt
+    - type: txt
+  IP Sum No FP 02:
+    - url: https://raw.githubusercontent.com/stamparm/ipsum/master/levels/7.txt
+    - type: txt
+  IP Sum No FP 03:
+    - url: https://raw.githubusercontent.com/stamparm/ipsum/master/levels/8.txt
+    - type: txt
+  microsoftCOVID19:
+    - url: https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Sample%20Data/Feeds/Microsoft.Covid19.Indicators.csv
+    - type: csv
+
+  # Large feeds below
+
+  otxReputationData:
+    - url: http://reputation.alienvault.com/reputation.data
+    - type: csv
+  urlHausAbuseCh:
+    - url: https://urlhaus.abuse.ch/downloads/csv/
+    - type: csv
+  urlHausAbuseChPayloadsURL:
+    - url: https://urlhaus.abuse.ch/downloads/payloads/
+    - type: csv
+  Neo23x0:
+    - url: https://raw.githubusercontent.com/Neo23x0/signature-base/master/iocs/otx-c2-iocs.txt
+    - type: txt
+  bambenekDGA:
+    - url: http://osint.bambenekconsulting.com/feeds/dga-feed.txt
+    - type: txt
+  netlab360DGA:
+    - url: http://data.netlab.360.com/feeds/dga/dga.txt
+    - type: txt
+  SANSIP:
+    - url: https://isc.sans.edu/ipsascii.html
+    - type: txt
+  # -----------------------------------------------------------
+  # TO DO feed below
+  #
+  #
+  # Cybercure feed — confidence 40
+  # cybercureIpFeed:
+  #   - url: http://api.cybercure.ai/feed/get_ips?type=csv
+  #   - type: csv
+  # cyberCureCsvFeed:
+  #   - url: http://api.cybercure.ai/feed/get_url?type=csv
+  #   - type: csv
+  # cyberCureHashFeed:
+  #   - url: http://api.cybercure.ai/feed/get_hash?type=csv
+  #   - type: csv
+  # cybercureBadIPs:
+  #   - url: http://api.cybercure.ai/feed/get_ips?type=csv
+  #   - type: csv
+  # cybercrimeTracker:
+  #   - url: http://cybercrime-tracker.net/all.php
+  #   - type: csv
+  #
+  # TODO: Support github feed: https://github.com/StrangerealIntel/DailyIOC
+  # TODO: Support STIX or MISP from DigitalSide TI: https://github.com/davidonzo/Threat-Intel
+  # TODO: NovaSense TI feeds: https://novasense-threats.com/using/api
+  # TODO: CertPolandDomains: http://hole.cert.pl/domains/
+  # TODO: BerkeleyAggressiveIP: https://security.berkeley.edu/services/aggressive-ip-distribution-aid-list/documentation/get-list-aggressive-ip-addresses
+  # TODO: dragonResearchGroupSSHPWAUTH: https://dragonresearchgroup.org/insight/sshpwauth.txt
+  # TODO: dragonResearchGroupVNCProbe: https://dragonresearchgroup.org/insight/vncprobe.txt
+  # TODO: SANSDailySources: https://isc.sans.edu/feeds/daily_sources
+  # TODo: https://easylist-msie.adblockplus.org/malwaredomains_full.tpl
+  # TODO: add from https://osint.digitalside.it
+  # TODO: add from https://www.bountysource.com/issues/27821354-contribute-feeds-list
+  # TODO: add from https://github.com/certtools/intelmq/issues/384
+  # TODO: http://www.malwaredomainlist.com/mdlcsv.php   # confidence 75
+  # TODO: https://attackers.ongoing.today
+  # TODO: http://multiproxy.org/txt_all/proxy.txt   # confidence 85
+  # TODO: https://raw.githubusercontent.com/hoshsadiq/adblock-nocoin-list/master/hosts.txt  # confidence 80, cryptocurrency
+  # TODO: SpamHausDropIp: http://www.spamhaus.org/drop/drop.txt   # confidence 80
+  # TODO: Extended SpamHaus Drop list: http://www.spamhaus.org/drop/edrop.txt   # confidence 70
+  # TODO: NIXSPAMDB: http://www.dnsbl.manitu.net/download/nixspam-ip.dump.gz  # confidence 75
+  # TODO: Maltrail: (a number of sources inside each repository)
+  # TODO: http://www.darklist.de/raw.php    # confidence 70
+  # TODO: https://isc.sans.edu/api/threatlist/miner/ #  XML, confidence 70
+  # TODO: https://www.rstcloud.net/freefeed
+  #  https://github.com/stamparm/maltrail/tree/master/trails/static/suspicious
+  #  https://github.com/stamparm/maltrail/tree/master/trails/static/malware
+  #  http://www.wildlist.org/CurrentList.txt
+  #
+  # Pan42 IOCS
+  #  https://github.com/pan-unit42/iocs
+  # Fireeye IOCS
+  #  https://github.com/fireeye/iocs
+  # Eset malware IOCS
+  #  https://github.com/eset/malware-ioc
+  # Aggregators
+  #  https://threatfeeds.io
+  # Antisource compilation:
+  #  https://www.antisource.com/intel/antisource_intel.csv
+  #  https://www.antisource.com/intel/antisource_intel.json
+  #  https://www.antisource.com/intel/antisource_ipblacklist.txt
+  #  https://www.antisource.com/intel/antisource_domainslist.txt
+  #  https://www.antisource.com/intel/antisource_combinedlist.txt.gz
+  # Reports:
+  #  http://cybercampaigns.net
+  #  https://github.com/CyberMonitor/APT_CyberCriminal_Campagin_Collections
+  #  https://github.com/aptnotes/data
+  #  https://github.com/citizenlab/malware-indicators
+  # MISP feeds
+  #  https://www.circl.lu/doc/misp/feed-osint/
+  #  https://feeds.inthreat.com/osint/
+  # MrLooquer feed
+  #  https://iocfeed.mrlooquer.com/feed.json
+  #  https://iocfeed.mrlooquer.com/feed.csv
+  # ViriBack - unsafe sites
+  #  http://tracker.viriback.com/dump.php
+  # Other
+  #  http://dsi.ut-capitole.fr/blacklists/download
+  #  https://www.turris.cz/greylist-data/greylist-latest.csv
+  #  Campaings: https://github.com/CyberMonitor/APT_CyberCriminal_Campagin_Collections
+  #  APT Notes: https://github.com/aptnotes/data
+  #  https://github.com/hxFrost/Malware-Analysis-Tools
