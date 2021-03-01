@@ -61,7 +61,7 @@ class Downloader:
 
         self.workdir = os.path.dirname(os.path.realpath(__file__))
         self.cache = pickledb.load(
-            os.path.join(self.workdir, "/cache/cache.json"), auto_dump=False
+            os.path.join(self.workdir, "cache/cache.json"), auto_dump=False
         )
 
         batch_results = []
