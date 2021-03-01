@@ -6,8 +6,8 @@ services:
       - "7778:8086"
     restart: "always"
     volumes:
-      - /opt/influx/data:/var/lib/influxdb2
-      - /opt/influx/config:/etc/influxdb2
+      - /opt/cti-stats-collector/influx/data:/var/lib/influxdb2
+      - /opt/cti-stats-collector/influx/config:/etc/influxdb2
     logging:
       driver: "json-file"
       options:
