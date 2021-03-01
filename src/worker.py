@@ -31,7 +31,7 @@ class Downloader:
         time_start = time()
         timeout = httpx.Timeout(5, connect=10)
 
-        async with httpx.AsyncClient() as client:
+        async with httpx.AsyncClient(verify=False) as client:
             try:
                 response = await client.get(
                     feed["feed_url"], allow_redirects=True, timeout=timeout
@@ -57,7 +57,7 @@ class Downloader:
         :param feeds: Feeds object
         """
         data = [(self.get_feed(feed)) for feed in feeds]
-        results = await asyncio.gather(*data, return_exceptions=True)
+        results = await asyncio.gather(*data, return_exceptions=False)
 
         self.workdir = os.path.dirname(os.path.realpath(__file__))
         self.cache = pickledb.load(
