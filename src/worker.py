@@ -47,7 +47,7 @@ class Downloader:
                     logger.error(
                         f"Feed `{feed['feed_name']}` can not be downloaded: {response.status_code}: {response.headers}"
                     )
-            except httpx.TimeoutException as e:
+            except Exception as e:
                 logger.error(f"Feed `{feed['feed_name']}` can not be downloaded: {e}")
 
     async def get_all_osint_feeds(self, feeds: List[Dict[str, Any]]) -> None:
@@ -67,30 +67,31 @@ class Downloader:
         batch_results = []
 
         for feed in results:
-            for k, v in feed.items():
+            if feed:
+                for k, v in feed.items():
 
-                if self.cache.exists(k):
-                    if self.cache.get(k) == v:
-                        # print(f"Feed {k} has not changed since last update")
+                    if self.cache.exists(k):
+                        if self.cache.get(k) == v:
+                            # print(f"Feed {k} has not changed since last update")
+                            batch_results.append(
+                                {
+                                    "measurement": "update_status",
+                                    "tags": {"feed_name": k},
+                                    "fields": {"is_updated": 0},
+                                    "time": datetime.now(UTC),
+                                }
+                            )
+                    else:
+                        # print(f"Feed {k} has been updated {v}")
+                        self.cache.set(k, v)
                         batch_results.append(
                             {
                                 "measurement": "update_status",
                                 "tags": {"feed_name": k},
-                                "fields": {"is_updated": 0},
+                                "fields": {"is_updated": 1},
                                 "time": datetime.now(UTC),
                             }
                         )
-                else:
-                    # print(f"Feed {k} has been updated {v}")
-                    self.cache.set(k, v)
-                    batch_results.append(
-                        {
-                            "measurement": "update_status",
-                            "tags": {"feed_name": k},
-                            "fields": {"is_updated": 1},
-                            "time": datetime.now(UTC),
-                        }
-                    )
 
         storage.write_stats(batch_results)
         self.cache.dump()
