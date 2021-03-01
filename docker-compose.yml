@@ -28,6 +28,8 @@ services:
     depends_on:
       - db
     restart: "on-failure"
+    volumes:
+      - /opt/cti-stats-collector/cache:/opt/cti-stats-collector/cache
     environment:
       - INFLUX_URL=http://db:8086
       - INFLUX_TOKEN=${INFLUX_TOKEN}
