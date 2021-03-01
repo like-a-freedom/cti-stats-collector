@@ -27,11 +27,11 @@ services:
     build: .
     depends_on:
       - db
+    restart: "on-failure"
     environment:
-      - INFLUX_URL=http://influxdb:7778
+      - INFLUX_URL=http://db:8086
       - INFLUX_TOKEN=${INFLUX_TOKEN}
       - INFLUX_BUCKET=${INFLUX_BUCKET}
       - INFLUX_ORG=${INFLUX_ORG}
-    volumes:
-      - /opt/collector/config:/opt/cti-stats-collector/config
+      - CTI_FEEDS_FETCH_INTERVAL=15
     container_name: collector

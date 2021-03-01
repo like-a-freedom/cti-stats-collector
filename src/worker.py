@@ -29,20 +29,26 @@ class Downloader:
         :param feed: Feed object
         """
         time_start = time()
+        timeout = httpx.Timeout(5, connect=10)
 
         async with httpx.AsyncClient() as client:
-            response = await client.get(feed["feed_url"], allow_redirects=True)
-            if response.status_code == 200:
-                feed_download_time = time() - time_start
-                hash = hashlib.md5(response.content).hexdigest()
-                logger.info(
-                    f"Feed `{feed['feed_name']}` of {len(response.text):.2f} Kbytes downloaded in {feed_download_time:.2f} seconds"
+            try:
+                response = await client.get(
+                    feed["feed_url"], allow_redirects=True, timeout=timeout
                 )
-                return {feed["feed_name"]: hash}
-            else:
-                logger.error(
-                    f"Feed `{feed['feed_name']}` can not be downloaded: {response.status_code}: {response.headers}"
-                )
+                if response.status_code == 200:
+                    feed_download_time = time() - time_start
+                    hash = hashlib.md5(response.content).hexdigest()
+                    logger.info(
+                        f"Feed `{feed['feed_name']}` of {len(response.text):.2f} Kbytes downloaded in {feed_download_time:.2f} seconds"
+                    )
+                    return {feed["feed_name"]: hash}
+                else:
+                    logger.error(
+                        f"Feed `{feed['feed_name']}` can not be downloaded: {response.status_code}: {response.headers}"
+                    )
+            except httpx.TimeoutException as e:
+                logger.error(f"Feed `{feed['feed_name']}` can not be downloaded: {e}")
 
     async def get_all_osint_feeds(self, feeds: List[Dict[str, Any]]) -> None:
         """
@@ -100,5 +106,5 @@ class Downloader:
             asyncio.run(self.get_all_osint_feeds(feeds))
         finally:
             logger.info(
-                f"Successfully downloaded and sent to MQ {len(feeds)} feeds in {(time() - time_start):.2f} seconds"
+                f"Successfully downloaded {len(feeds)} feeds in {(time() - time_start):.2f} seconds"
             )

@@ -12,7 +12,4 @@ RUN touch /opt/cti-stats-collector/collector.log
 RUN ln -sf /dev/stdout /opt/cti-stats-collector/collector.log \
     && ln -sf /dev/stderr /opt/cti-stats-collector/collector.log
 
-VOLUME [ "/opt/cti-stats-collector/config" ]
-
-WORKDIR /opt/cti-stats-collector/
 CMD ["python", "collector.py"]
