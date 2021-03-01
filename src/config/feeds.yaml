@@ -602,21 +602,21 @@ COMMUNITY_FEEDS:
   #
   #
   # Cybercure feed — confidence 40
-  # cybercureIpFeed:
-  #   - url: http://api.cybercure.ai/feed/get_ips?type=csv
-  #   - type: csv
-  # cyberCureCsvFeed:
-  #   - url: http://api.cybercure.ai/feed/get_url?type=csv
-  #   - type: csv
-  # cyberCureHashFeed:
-  #   - url: http://api.cybercure.ai/feed/get_hash?type=csv
-  #   - type: csv
-  # cybercureBadIPs:
-  #   - url: http://api.cybercure.ai/feed/get_ips?type=csv
-  #   - type: csv
-  # cybercrimeTracker:
-  #   - url: http://cybercrime-tracker.net/all.php
-  #   - type: csv
+  cybercureIpFeed:
+    - url: http://api.cybercure.ai/feed/get_ips?type=csv
+    - type: csv
+  cyberCureCsvFeed:
+    - url: http://api.cybercure.ai/feed/get_url?type=csv
+    - type: csv
+  cyberCureHashFeed:
+    - url: http://api.cybercure.ai/feed/get_hash?type=csv
+    - type: csv
+  cybercureBadIPs:
+    - url: http://api.cybercure.ai/feed/get_ips?type=csv
+    - type: csv
+  cybercrimeTracker:
+    - url: http://cybercrime-tracker.net/all.php
+    - type: csv
   #
   # TODO: Support github feed: https://github.com/StrangerealIntel/DailyIOC
   # TODO: Support STIX or MISP from DigitalSide TI: https://github.com/davidonzo/Threat-Intel
