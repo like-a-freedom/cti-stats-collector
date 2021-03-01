@@ -33,5 +33,5 @@ services:
       - INFLUX_TOKEN=${INFLUX_TOKEN}
       - INFLUX_BUCKET=${INFLUX_BUCKET}
       - INFLUX_ORG=${INFLUX_ORG}
-      - CTI_FEEDS_FETCH_INTERVAL=15
+      - CTI_FEEDS_FETCH_INTERVAL=60
     container_name: collector
