@@ -11,3 +11,7 @@ This is a simple tool downloads a list of CTI feeds, then compares current downl
 ## Which CTI feeds?
 
 Take a look at `/src/config/feeds.yaml`
+
+## How often CTI feeds will be cheked?
+
+Default value is every 60 minutes. If you want to use your own value — specify it in variable `FEEDS_UPDATE_INTERVAL` in your `.env` file.
