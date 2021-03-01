@@ -13,7 +13,7 @@ import urllib3
 from pytz import UTC
 
 import storage
-from helpers import service
+import service
 
 urllib3.disable_warnings()
 

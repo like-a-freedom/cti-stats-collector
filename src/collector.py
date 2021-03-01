@@ -1,12 +1,12 @@
 import time
 import schedule
 import worker
-from helpers import service
+import service
 
 logger = service.log_event(__name__)
 worker = worker.Downloader()
 
-FEED_PATH: str = "config/feeds.mini.yaml"
+FEED_PATH: str = "config/feeds.yaml"
 
 
 def start_collecting(feeds):

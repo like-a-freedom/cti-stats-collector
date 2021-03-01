@@ -1,10 +1,6 @@
 FROM python:3.9-slim-buster
 
 RUN apt-get -y update
-# RUN apt-get -y install \
-#     python-dev \
-#     cython \
-#     build-essential
 RUN pip3 install --upgrade pip
 RUN python3 -m pip install --upgrade setuptools
 
