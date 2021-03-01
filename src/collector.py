@@ -19,6 +19,7 @@ def start_collecting(feeds):
 
 if __name__ == "__main__":
     feeds = service.load_feeds(FEED_PATH)
+    start_collecting(feeds)
     schedule.every(FEEDS_UPDATE_INTERVAL).minutes.do(start_collecting, feeds)
 
     while True:
