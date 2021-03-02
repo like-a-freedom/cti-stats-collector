@@ -597,10 +597,7 @@ COMMUNITY_FEEDS:
   SANSIP:
     - url: https://isc.sans.edu/ipsascii.html
     - type: txt
-  # -----------------------------------------------------------
-  # TO DO feed below
-  #
-  #
+  
   # Cybercure feed — confidence 40
   cyberCureIpFeed:
     - url: http://api.cybercure.ai/feed/get_ips?type=csv
@@ -617,6 +614,17 @@ COMMUNITY_FEEDS:
   cybercrimeTracker:
     - url: http://cybercrime-tracker.net/all.php
     - type: csv
+
+  # 1d4.us
+  1d4.us-botsToday:
+    - url: https://1d4.us/archive/bots-today.txt
+    - type: txt
+  1d4.us-Today:
+    - url: https://1d4.us/archive/today.txt
+    - type: txt
+  1d4.us-TodayDomain:
+    - url: https://1d4.us/archive/today-domain.txt
+    - type: txt
   #
   # TODO: Support github feed: https://github.com/StrangerealIntel/DailyIOC
   # TODO: Support STIX or MISP from DigitalSide TI: https://github.com/davidonzo/Threat-Intel
