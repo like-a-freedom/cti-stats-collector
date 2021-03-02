@@ -64,7 +64,8 @@ class Downloader:
             os.path.join(self.workdir, "cache/cache.json"), auto_dump=False
         )
 
-        batch_results = []
+        batch_results: List[Dict[str, Any]] = []
+        updated_feeds: List[str] = []
 
         for feed in results:
             if feed:
@@ -83,6 +84,7 @@ class Downloader:
                             )
                     else:
                         # print(f"Feed {k} has been updated {v}")
+                        updated_feeds.append(k)
                         self.cache.set(k, v)
                         batch_results.append(
                             {
@@ -95,6 +97,7 @@ class Downloader:
 
         storage.write_stats(batch_results)
         self.cache.dump()
+        logger.info(f"{len(updated_feeds)} updated. Updated feeds: {updated_feeds}")
 
     def get_feeds(self, feeds: List[Dict[str, Any]]) -> None:
         """
