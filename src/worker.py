@@ -97,7 +97,9 @@ class Downloader:
 
         storage.write_stats(batch_results)
         self.cache.dump()
-        logger.info(f"{len(updated_feeds)} updated. Updated feeds: {updated_feeds}")
+        logger.info(
+            f"{len(updated_feeds)} feeds updated. Updated feeds: {updated_feeds}"
+        )
 
     def get_feeds(self, feeds: List[Dict[str, Any]]) -> None:
         """
