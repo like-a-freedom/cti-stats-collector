@@ -43,6 +43,16 @@ COMMUNITY_FEEDS:
   SANSTorExitNodes:
     - url: https://isc.sans.edu/feeds/topips.txt
     - type: txt
+  SANSDailySources:
+    - url: https://isc.sans.edu/feeds/daily_sources
+    - type: csv
+  SANSIP:
+    - url: https://isc.sans.edu/ipsascii.html
+    - type: txt
+  SANSMiner:
+    - url: https://isc.sans.edu/api/threatlist/miner/ #  XML, confidence 70
+    - type: txt
+
   AbuseBazzar:
     - url: https://bazaar.abuse.ch/export/csv/recent/
     - type: csv
@@ -337,9 +347,9 @@ COMMUNITY_FEEDS:
   malc0deFeed:
     - url: http://malc0de.com/bl/IP_Blacklist.txt
     - type: txt
-  # threatlistFeed:
-  #   - url: https://threatlists.intercept.sh/threatlist_7d_weekly_sample.csv
-  #   - type: csv
+  threatlistFeed:
+    - url: https://threatlists.intercept.sh/threatlist_7d_weekly_sample.csv
+    - type: csv
   mdlIpFeed:
     - url: http://www.malwaredomainlist.com/hostslist/ip.txt
     - type: txt
@@ -364,12 +374,12 @@ COMMUNITY_FEEDS:
   diamondFoxPanels:
     - url: https://raw.githubusercontent.com/pan-unit42/iocs/master/diamondfox/diamondfox_panels.txt
     - type: txt
-  # booterblacklistOSINT: # confidence 50
-  #   - url: https://raw.githubusercontent.com/jjsantanna/booters_ecosystem_analysis/master/booterblacklist.csv
-  #   - type: csv
-  # Benkow.cc:
-  #   - url: https://benkow.cc/export.php
-  #   - type: csv
+  booterblacklistOSINT: # confidence 50
+    - url: https://raw.githubusercontent.com/jjsantanna/booters_ecosystem_analysis/master/booterblacklist.csv
+    - type: csv
+  Benkow.cc:
+    - url: https://benkow.cc/export.php
+    - type: csv
   charleysTheHayles: # confidence 0
     - url: http://charles.the-haleys.org/ssh_dico_attack_hdeny_format.php/hostsdeny.txt
     - type: txt
@@ -451,12 +461,12 @@ COMMUNITY_FEEDS:
   CryptocurrencyPools:
     - url: https://raw.githubusercontent.com/Hestat/minerchk/master/hostslist.txt
     - type: txt
-  # targetedThreatsBotherder:
-  #   - url: https://raw.githubusercontent.com/botherder/targetedthreats/master/targetedthreats.csv
-  #   - type: csv
-  # targetedThreatOSINT:
-  #   - url: https://raw.githubusercontent.com/botherder/targetedthreats/master/samples.csv
-  #   - type: csv
+  targetedThreatsBotherder:
+    - url: https://raw.githubusercontent.com/botherder/targetedthreats/master/targetedthreats.csv
+    - type: csv
+  targetedThreatOSINT:
+    - url: https://raw.githubusercontent.com/botherder/targetedthreats/master/samples.csv
+    - type: csv
   futpibGithubBL:
     - url: https://raw.githubusercontent.com/futpib/policeman-rulesets/master/examples/simple_domains_blacklist.txt
     - type: txt
@@ -466,9 +476,9 @@ COMMUNITY_FEEDS:
   magnetoMalwareScanner: # confidence 50
     - url: https://raw.githubusercontent.com/gwillem/magento-malware-scanner/master/rules/burner-domains.txt
     - type: txt
-  # blutmagieTOR:
-  #   - url: https://torstatus.blutmagie.de/ip_list_all.php/Tor_ip_list_ALL.csv
-  #   - type: csv
+  blutmagieTOR:
+    - url: https://torstatus.blutmagie.de/ip_list_all.php/Tor_ip_list_ALL.csv
+    - type: csv
   techhelplist:
     - url: https://techhelplist.com/maltlqr/reports/dyreza.txt
     - type: txt
@@ -485,16 +495,16 @@ COMMUNITY_FEEDS:
   digitalSide - URL:
     - url: https://osint.digitalside.it/Threat-Intel/lists/latesturls.txt
     - type: txt
-  # AbuseChSSLBL:
-  #   - url: https://sslbl.abuse.ch/blacklist/sslipblacklist.csv
-  #   - type: csv
+  AbuseChSSLBL:
+    - url: https://sslbl.abuse.ch/blacklist/sslipblacklist.csv
+    - type: csv
   BBScanDNS:
     - url: https://gist.githubusercontent.com/BBcan177/4a8bf37c131be4803cb2/raw
     - type: txt
   BBScanIP:
     - url: https://gist.githubusercontent.com/BBcan177/bf29d47ea04391cb3eb0/raw/
     - type: txt
-  darklistDe:
+  darklistDe: # confidence 70
     - url: http://www.darklist.de/raw.php
     - type: txt
   stDominicDropIpv4: # confidence 60
@@ -594,10 +604,7 @@ COMMUNITY_FEEDS:
   netlab360DGA:
     - url: http://data.netlab.360.com/feeds/dga/dga.txt
     - type: txt
-  SANSIP:
-    - url: https://isc.sans.edu/ipsascii.html
-    - type: txt
-  
+
   # Cybercure feed — confidence 40
   cyberCureIpFeed:
     - url: http://api.cybercure.ai/feed/get_ips?type=csv
@@ -625,33 +632,103 @@ COMMUNITY_FEEDS:
   1d4.us-TodayDomain:
     - url: https://1d4.us/archive/today-domain.txt
     - type: txt
-  #
+
+  CERT.PL:
+    - url: http://hole.cert.pl/domains/domains.txt
+    - type: txt
+
+  #AttackersOngoingToday
+  AttackersOngoingToday_Closed:
+    - url: https://attackers.ongoing.today/closed.txt
+    - type: txt
+  AttackersOngoingToday_Database:
+    - url: https://attackers.ongoing.today/database.txt
+    - type: txt
+  AttackersOngoingToday_HTTPD:
+    - url: https://attackers.ongoing.today/httpd.txt
+    - type: txt
+  AttackersOngoingToday_MISC:
+    - url: https://attackers.ongoing.today/misc.txt
+    - type: txt
+  AttackersOngoingToday_Shell:
+    - url: https://attackers.ongoing.today/shell.txt
+    - type: txt
+
+  MultiProxy: # confidence 85
+    - url: https://multiproxy.org/txt_all/proxy.txt
+    - type: txt
+
+  AdblockNocoin: # confidence 80, cryptocurrency
+    - url: https://raw.githubusercontent.com/hoshsadiq/adblock-nocoin-list/master/hosts.txt
+    - type: txt
+
+  SpamHouseDropIP: # confidence 80
+    - url: http://www.spamhaus.org/drop/drop.txt
+    - type: txt
+  SpamHouseExtendedDropIP: # confidence 70
+    - url: https://www.spamhaus.org/drop/edrop.txt
+    - type: txt
+
+  NixSpamDB: # confidence 75
+    - url: http://www.dnsbl.manitu.net/download/nixspam-ip.dump.gz
+    - type: txt
+
+  RSTCloudIP: # json also available
+    - url: https://rstcloud.net/free/ioc/ioc_ip_latest.csv
+    - type: csv
+  RSTCloudDomain:
+    - url: https://rstcloud.net/free/ioc/ioc_domain_latest.csv
+    - type: csv
+  RSTCloudURL:
+    - url: https://rstcloud.net/free/ioc/ioc_url_latest.csv
+    - type: csv
+
+  Wildlist:
+    - url: http://www.wildlist.org/CurrentList.txt
+    - type: csv
+
+  # Antisource
+  Antisource_Intel: # https://www.antisource.com/intel/antisource_intel.json
+    - url: https://www.antisource.com/intel/antisource_intel.csv
+    - type: csv
+  Antisource_IP_BL:
+    - url: https://www.antisource.com/intel/antisource_ipblacklist.txt
+    - type: txt
+  Antisource_Domainlist:
+    - url: https://www.antisource.com/intel/antisource_domainslist.txt
+    - type: txt
+  Antisource_Combined:
+    - url: https://www.antisource.com/intel/antisource_combinedlist.txt.gz
+    - type: txt
+
+  MrLooker: # https://iocfeed.mrlooquer.com/feed.json
+    - url: https://iocfeed.mrlooquer.com/feed.csv
+    - type: csv
+
+  # ViriBack - unsafe sites
+  ViriBack:
+    - url: http://tracker.viriback.com/dump.php
+    - type: csv
+  TurrisCz_Greylist:
+    - url: https://www.turris.cz/greylist-data/greylist-latest.csv
+    - type: csv
+  
+  
+  
+  
   # TODO: Support github feed: https://github.com/StrangerealIntel/DailyIOC
   # TODO: Support STIX or MISP from DigitalSide TI: https://github.com/davidonzo/Threat-Intel
   # TODO: NovaSense TI feeds: https://novasense-threats.com/using/api
-  # TODO: CertPolandDomains: http://hole.cert.pl/domains/
   # TODO: BerkeleyAggressiveIP: https://security.berkeley.edu/services/aggressive-ip-distribution-aid-list/documentation/get-list-aggressive-ip-addresses
   # TODO: dragonResearchGroupSSHPWAUTH: https://dragonresearchgroup.org/insight/sshpwauth.txt
   # TODO: dragonResearchGroupVNCProbe: https://dragonresearchgroup.org/insight/vncprobe.txt
-  # TODO: SANSDailySources: https://isc.sans.edu/feeds/daily_sources
   # TODo: https://easylist-msie.adblockplus.org/malwaredomains_full.tpl
   # TODO: add from https://osint.digitalside.it
   # TODO: add from https://www.bountysource.com/issues/27821354-contribute-feeds-list
   # TODO: add from https://github.com/certtools/intelmq/issues/384
   # TODO: http://www.malwaredomainlist.com/mdlcsv.php   # confidence 75
-  # TODO: https://attackers.ongoing.today
-  # TODO: http://multiproxy.org/txt_all/proxy.txt   # confidence 85
-  # TODO: https://raw.githubusercontent.com/hoshsadiq/adblock-nocoin-list/master/hosts.txt  # confidence 80, cryptocurrency
-  # TODO: SpamHausDropIp: http://www.spamhaus.org/drop/drop.txt   # confidence 80
-  # TODO: Extended SpamHaus Drop list: http://www.spamhaus.org/drop/edrop.txt   # confidence 70
-  # TODO: NIXSPAMDB: http://www.dnsbl.manitu.net/download/nixspam-ip.dump.gz  # confidence 75
-  # TODO: Maltrail: (a number of sources inside each repository)
-  # TODO: http://www.darklist.de/raw.php    # confidence 70
-  # TODO: https://isc.sans.edu/api/threatlist/miner/ #  XML, confidence 70
-  # TODO: https://www.rstcloud.net/freefeed
   #  https://github.com/stamparm/maltrail/tree/master/trails/static/suspicious
   #  https://github.com/stamparm/maltrail/tree/master/trails/static/malware
-  #  http://www.wildlist.org/CurrentList.txt
   #
   # Pan42 IOCS
   #  https://github.com/pan-unit42/iocs
@@ -661,12 +738,6 @@ COMMUNITY_FEEDS:
   #  https://github.com/eset/malware-ioc
   # Aggregators
   #  https://threatfeeds.io
-  # Antisource compilation:
-  #  https://www.antisource.com/intel/antisource_intel.csv
-  #  https://www.antisource.com/intel/antisource_intel.json
-  #  https://www.antisource.com/intel/antisource_ipblacklist.txt
-  #  https://www.antisource.com/intel/antisource_domainslist.txt
-  #  https://www.antisource.com/intel/antisource_combinedlist.txt.gz
   # Reports:
   #  http://cybercampaigns.net
   #  https://github.com/CyberMonitor/APT_CyberCriminal_Campagin_Collections
@@ -675,14 +746,8 @@ COMMUNITY_FEEDS:
   # MISP feeds
   #  https://www.circl.lu/doc/misp/feed-osint/
   #  https://feeds.inthreat.com/osint/
-  # MrLooquer feed
-  #  https://iocfeed.mrlooquer.com/feed.json
-  #  https://iocfeed.mrlooquer.com/feed.csv
-  # ViriBack - unsafe sites
-  #  http://tracker.viriback.com/dump.php
   # Other
   #  http://dsi.ut-capitole.fr/blacklists/download
-  #  https://www.turris.cz/greylist-data/greylist-latest.csv
   #  Campaings: https://github.com/CyberMonitor/APT_CyberCriminal_Campagin_Collections
   #  APT Notes: https://github.com/aptnotes/data
   #  https://github.com/hxFrost/Malware-Analysis-Tools
