@@ -602,7 +602,7 @@ COMMUNITY_FEEDS:
   #
   #
   # Cybercure feed — confidence 40
-  cybercureIpFeed:
+  cyberCureIpFeed:
     - url: http://api.cybercure.ai/feed/get_ips?type=csv
     - type: csv
   cyberCureCsvFeed:
@@ -611,7 +611,7 @@ COMMUNITY_FEEDS:
   cyberCureHashFeed:
     - url: http://api.cybercure.ai/feed/get_hash?type=csv
     - type: csv
-  cybercureBadIPs:
+  cyberCureBadIPs:
     - url: http://api.cybercure.ai/feed/get_ips?type=csv
     - type: csv
   cybercrimeTracker:
