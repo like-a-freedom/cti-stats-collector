@@ -726,6 +726,7 @@ COMMUNITY_FEEDS:
   # TODO: add from https://osint.digitalside.it
   # TODO: add from https://www.bountysource.com/issues/27821354-contribute-feeds-list
   # TODO: add from https://github.com/certtools/intelmq/issues/384
+  # TODO: add https://threatfox.abuse.ch
   # TODO: http://www.malwaredomainlist.com/mdlcsv.php   # confidence 75
   #  https://github.com/stamparm/maltrail/tree/master/trails/static/suspicious
   #  https://github.com/stamparm/maltrail/tree/master/trails/static/malware
