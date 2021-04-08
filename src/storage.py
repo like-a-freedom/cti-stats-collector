@@ -15,3 +15,7 @@ write_api = client.write_api(write_options=SYNCHRONOUS)
 def write_stats(data_batch):
     write_api.write(BUCKET, ORG, data_batch)
     client.__del__()
+
+def write_to_disk(file_name: str, file_body):
+    with open(f"./feeds/{file_name}", "w") as file:
+        file.write(file_body)

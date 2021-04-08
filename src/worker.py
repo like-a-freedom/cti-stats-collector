@@ -38,6 +38,8 @@ class Downloader:
                 )
                 if response.status_code == 200:
                     feed_download_time = time() - time_start
+                    # In case you wanna dump feed to the disk
+                    # storage.write_to_disk(f"{feed['feed_name']}.{feed['feed_type']}", response.text)
                     hash = hashlib.md5(response.content).hexdigest()
                     logger.info(
                         f"Feed `{feed['feed_name']}` of {len(response.text):.2f} Kbytes downloaded in {feed_download_time:.2f} seconds"
