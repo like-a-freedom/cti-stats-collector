@@ -29,6 +29,8 @@ class Downloader:
         :param feed: Feed object
         """
         time_start = time()
+        successfully_downloaded: int = 0
+        unsuccessfully_downloaded: int = 0
         timeout = httpx.Timeout(5, connect=10)
 
         async with httpx.AsyncClient(verify=False) as client:
@@ -41,16 +43,19 @@ class Downloader:
                     # In case you wanna dump feed to the disk
                     # storage.write_to_disk(f"{feed['feed_name']}.{feed['feed_type']}", response.text)
                     hash = hashlib.md5(response.content).hexdigest()
-                    logger.info(
-                        f"Feed `{feed['feed_name']}` of {len(response.text):.2f} Kbytes downloaded in {feed_download_time:.2f} seconds"
-                    )
+                    # logger.info(
+                    #     f"Feed `{feed['feed_name']}` of {len(response.text):.2f} Kbytes downloaded in {feed_download_time:.2f} seconds"
+                    # )
+                    successfully_downloaded += 1
                     return {feed["feed_name"]: hash}
                 else:
-                    logger.error(
-                        f"Feed `{feed['feed_name']}` can not be downloaded: {response.status_code}: {response.headers}"
-                    )
+                    # logger.error(
+                    #     f"Feed `{feed['feed_name']}` can not be downloaded: {response.status_code}: {response.headers}"
+                    # )
+                    unsuccessfully_downloaded += 1
             except Exception as e:
                 logger.error(f"Feed `{feed['feed_name']}` can not be downloaded: {e}")
+                unsuccessfully_downloaded += 1
 
     async def get_all_osint_feeds(self, feeds: List[Dict[str, Any]]) -> None:
         """

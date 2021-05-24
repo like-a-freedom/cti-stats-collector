@@ -50,7 +50,7 @@ def load_config(config_path: str) -> Optional[Dict[str, Any]]:
 def load_feeds(feed_path: str) -> List[Dict[str, Any]]:
     feeds = load_config(feed_path)
     feed: Dict[str, Any] = {}
-    feed_pack: List = [feed]
+    feed_pack: List = []
     logger = log_event(__name__)
 
     for item in feeds["COMMUNITY_FEEDS"].items():
