@@ -712,6 +712,9 @@ COMMUNITY_FEEDS:
   TurrisCz_Greylist:
     - url: https://www.turris.cz/greylist-data/greylist-latest.csv
     - type: csv
+  JamesBrine_IP_list:
+    - url: https://jamesbrine.com.au/iplist.txt
+    - type: txt
   
   
   
