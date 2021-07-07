@@ -1,6 +1,6 @@
 # What's this?
 
-This is a simple tool downloads a list of CTI feeds, then compares current downloaded version with previos (hashes) and send statistics to InfluxDB database.
+This is a simple tool downloads a list of CTI feeds, then compares current downloaded version with previos (hashes) and send statistics to Clickhouse database.
 
 ## How can I use it?
 

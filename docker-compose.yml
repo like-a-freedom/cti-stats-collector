@@ -1,26 +1,23 @@
 version: "3.8"
 services:
   db:
-    image: influxdb:2.0-alpine
+    image: yandex/clickhouse-server
     ports:
-      - "7778:8086"
+      - "8123:8123"
+      - "9000:9000"
     restart: "always"
     volumes:
-      - /opt/cti-stats-collector/influx/data:/var/lib/influxdb2
-      - /opt/cti-stats-collector/influx/config:/etc/influxdb2
+      - /opt/cti-stats-collector/clickhouse/data:/var/lib/clickhouse
     logging:
       driver: "json-file"
       options:
         max-size: "1m"
         max-file: "10"
-    environment:
-      - DOCKER_INFLUXDB_INIT_MODE=setup
-      - DOCKER_INFLUXDB_INIT_BUCKET=${INFLUX_BUCKET}
-      - DOCKER_INFLUXDB_INIT_USERNAME=${INFLUX_ADMIN_NAME}
-      - DOCKER_INFLUXDB_INIT_PASSWORD=${INFLUX_ADMIN_PASSWORD}
-      - DOCKER_INFLUXDB_INIT_ORG=${INFLUX_ORG}
-      - DOCKER_INFLUXDB_INIT_RETENTION=${INFLUX_RETENTION}
-      - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=${INFLUX_TOKEN}
+    ulimits:
+      nproc: 65535
+      nofile:
+        soft: 262144
+        hard: 262144
     container_name: db
 
   collector:
@@ -31,9 +28,6 @@ services:
     volumes:
       - /opt/cti-stats-collector/cache:/opt/cti-stats-collector/cache
     environment:
-      - INFLUX_URL=http://db:8086
-      - INFLUX_TOKEN=${INFLUX_TOKEN}
-      - INFLUX_BUCKET=${INFLUX_BUCKET}
-      - INFLUX_ORG=${INFLUX_ORG}
+      - DB_URL=db
       - CTI_FEEDS_FETCH_INTERVAL=${FEEDS_UPDATE_INTERVAL}
     container_name: collector

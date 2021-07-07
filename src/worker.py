@@ -3,7 +3,7 @@ import hashlib
 import os
 from datetime import datetime
 from time import time
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Tuple
 
 import httpx
 import pickledb
@@ -71,7 +71,7 @@ class Downloader:
             os.path.join(self.workdir, "cache/cache.json"), auto_dump=False
         )
 
-        batch_results: List[Dict[str, Any]] = []
+        batch_results: List[Tuple] = []
         updated_feeds: List[str] = []
 
         for feed in results:
@@ -81,26 +81,12 @@ class Downloader:
                     if self.cache.exists(k):
                         if self.cache.get(k) == v:
                             # print(f"Feed {k} has not changed since last update")
-                            batch_results.append(
-                                {
-                                    "measurement": "update_status",
-                                    "tags": {"feed_name": k},
-                                    "fields": {"is_updated": 0},
-                                    "time": datetime.now(UTC),
-                                }
-                            )
+                            batch_results.append((k, datetime.now(UTC), 0))
                     else:
                         # print(f"Feed {k} has been updated {v}")
                         updated_feeds.append(k)
                         self.cache.set(k, v)
-                        batch_results.append(
-                            {
-                                "measurement": "update_status",
-                                "tags": {"feed_name": k},
-                                "fields": {"is_updated": 1},
-                                "time": datetime.now(UTC),
-                            }
-                        )
+                        batch_results.append((k, datetime.now(UTC), 1))
 
         storage.write_stats(batch_results)
         self.cache.dump()

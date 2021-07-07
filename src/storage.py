@@ -1,20 +1,39 @@
 import os
-from influxdb_client import InfluxDBClient
-from influxdb_client.client.write_api import SYNCHRONOUS
+from typing import List, Tuple
+from clickhouse_driver import Client
 
-URL = os.environ["INFLUX_URL"]
-TOKEN = os.environ["INFLUX_TOKEN"]
-ORG = os.environ["INFLUX_ORG"]
-BUCKET = os.environ["INFLUX_BUCKET"]
+DB_URL = os.environ["DB_URL"]
 
-# TODO: Get config directly from ENV: https://github.com/influxdata/influxdb-client-python
-client = InfluxDBClient(url=URL, token=TOKEN, org=ORG)
-write_api = client.write_api(write_options=SYNCHRONOUS)
+try:
+    client = Client(DB_URL)
+except Exception as e:
+    raise Exception(e)
 
+def init_db():
+    try:
+        client.execute(f"CREATE DATABASE IF NOT EXISTS stats;")
+    except Exception as e:
+        raise Exception(f"Can't create db: {e}")
+    try:
+        client.execute("""
+            CREATE TABLE IF NOT EXISTS stats.cti_feeds_stats 
+                (
+                    feed_name   String,
+                    dt  DateTime('Europe/Moscow'),
+                    is_updated  UInt8
+                ) ENGINE = MergeTree()
+                ORDER BY dt;
+                """
+            )
+    except Exception as e:
+        raise Exception(f"Can't create table: {e}")
 
-def write_stats(data_batch):
-    write_api.write(BUCKET, ORG, data_batch)
-    client.__del__()
+def write_stats(data_batch: List[Tuple]):
+    init_db()
+    try:
+        client.execute(f'INSERT INTO stats.cti_feeds_stats VALUES', data_batch, ";")
+    except Exception as e:
+        raise Exception(f"Unable to insert data into db: {e}")
 
 def write_to_disk(file_name: str, file_body):
     with open(f"./feeds/{file_name}", "w") as file:

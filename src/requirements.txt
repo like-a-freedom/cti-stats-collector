@@ -1,7 +1,7 @@
-urllib3==1.25.11
-schedule==1.0.0
-pytz==2020.5
-influxdb_client==1.14.0
-httpx==0.16.1
+httpx==0.18.1
+schedule==1.1.0
+pytz==2021.1
+clickhouse_driver==0.2.0
+urllib3==1.26.4
 pickleDB==0.9.2
 PyYAML==5.4.1
