@@ -3,7 +3,7 @@ import hashlib
 import os
 from datetime import datetime
 from time import time
-from typing import Any, Dict, List, Tuple
+from typing import Any, Dict, List, Optional, Tuple
 
 import httpx
 import pickledb
@@ -23,7 +23,7 @@ FEED_CHUNK_SIZE = 1048576
 
 
 class Downloader:
-    async def get_feed(self, feed: Dict[str, Any]) -> None:
+    async def get_feed(self, feed: Dict[str, Any]) -> Optional[Dict[str, Any]]:
         """
         Download the feed specified. Just get the feed of its own format without any parsing.
         :param feed: Feed object
