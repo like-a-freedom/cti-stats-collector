@@ -83,7 +83,7 @@ class Downloader:
             self.cache.dump()
             return True
 
-    async def get_all_osint_feeds(self, feeds: List[Dict[str, Any]]) -> None:
+    async def get_all_osint_feeds(self, feeds: List[Dict[str, Any]]) -> List[Tuple]:
         """
         Downloads all opensource feeds from
         configuration file and send it to MQ
