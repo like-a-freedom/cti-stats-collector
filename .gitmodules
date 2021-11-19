@@ -1,0 +1,3 @@
+[submodule "scoring_engine"]
+	path = packages/scoring_engine/src
+	url = https://github.com/R-Vision/university_of_amsterdam_ioc_scoring_model.git
