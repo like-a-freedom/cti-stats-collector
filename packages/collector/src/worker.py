@@ -22,6 +22,7 @@ urllib3.disable_warnings()
 logger = service.log_event(__name__)
 
 FEED_CHUNK_SIZE = 1048576
+DB_URL = os.environ["DB_URL"]
 
 
 class Downloader:
@@ -44,14 +45,10 @@ class Downloader:
         async with httpx.AsyncClient(verify=False) as client:
             try:
                 response = await client.get(
-                    feed["feed_url"], allow_redirects=True, timeout=timeout
+                    feed["feed_url"], follow_redirects=True, timeout=timeout
                 )
                 if response.status_code == 200:
                     feed_download_time = time() - time_start
-                    # TODO: parametrize the option below
-                    #
-                    # In case you wanna dump feed to the disk
-                    # storage.write_to_disk(f"{feed['feed_name']}.{feed['feed_type']}", response.text)
                     hash = hashlib.md5(response.content).hexdigest()
                     # logger.info(
                     #     f"Feed `{feed['feed_name']}` of {len(response.text):.2f} Kbytes downloaded in {feed_download_time:.2f} seconds"
@@ -100,7 +97,8 @@ class Downloader:
                 for feed_name, feed_hash in feed.items():
                     if self.is_updated:
                         updated_feeds.append(feed_name)
-                        batch_results.append((feed_name, datetime.now(UTC), 1))
+                        # batch_results.append((feed_name, datetime.now(UTC), 1))
+                        print((feed_name, datetime.now(UTC), 1))
                         # print(f"Feed {k} has been updated {v}")
                     elif self.is_updated == False:
                         batch_results.append((feed_name, datetime.now(UTC), 0))
@@ -111,13 +109,11 @@ class Downloader:
         )
         return batch_results
 
-    def save_to_database(self, data: List[Tuple]):
-        try:
-            import storage
-        except ImportError:
-            from src import storage
-
-        storage.write_stats(data)
+    def save_stats_to_database(self, data: List[Tuple]):
+        with httpx.Client(verify=False) as client:
+            endpoint = "/api/insert_stats"
+            payload = {}
+            client.post("storage" + endpoint, data=payload)
 
     def get_feeds(self, feeds: List[Dict[str, Any]]) -> None:
         """
@@ -128,7 +124,7 @@ class Downloader:
 
         try:
             results = asyncio.run(self.get_all_osint_feeds(feeds))
-            self.save_to_database(results)
+            self.save_stats_to_database(results)
         finally:
             logger.info(
                 f"Successfully downloaded {len(feeds)} feeds in {(time() - time_start):.2f} seconds"

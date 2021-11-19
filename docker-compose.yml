@@ -21,7 +21,7 @@ services:
     container_name: db
 
   collector:
-    build: .
+    build: ./packages/collector/
     depends_on:
       - db
     restart: "on-failure"
@@ -31,3 +31,12 @@ services:
       - DB_URL=db
       - CTI_FEEDS_FETCH_INTERVAL=${FEEDS_UPDATE_INTERVAL}
     container_name: collector
+
+  storage:
+    build: ./packages/storage
+    depends_on:
+      - db
+    restart: "on-failure"
+    environment:
+      - DB_URL=db
+    container_name: storage

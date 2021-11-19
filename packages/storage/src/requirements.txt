@@ -1,0 +1,5 @@
+clickhouse_driver==0.2.2
+fastapi==0.70.0
+pydantic==1.8.2
+pytest==6.2.5
+starlette==0.16.0

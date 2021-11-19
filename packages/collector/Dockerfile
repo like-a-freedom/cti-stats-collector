@@ -1,4 +1,4 @@
-FROM python:3.9.5-slim-buster
+FROM python:3.9.9-slim-buster
 
 RUN apt-get -y update
 RUN apt-get install -y gcc musl-dev
